@@ -1,0 +1,23 @@
+# Directorio de trabajo que crea el cuaderno (imágenes, cachés, predicciones)
+p3_work/
+p3_work_prueba/
+# Pesos intermedios; solo se versionan los best.pt de pesos/
+last.pt
+*.zip
+# Auxiliares de LaTeX
+informe/*.aux
+informe/*.bbl
+informe/*.bcf
+informe/*.blg
+informe/*.log
+informe/*.out
+informe/*.run.xml
+informe/*.fdb_latexmk
+informe/*.fls
+informe/*.synctex.gz
+# Sistema y cuadernos
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+Thumbs.db
+desktop.ini

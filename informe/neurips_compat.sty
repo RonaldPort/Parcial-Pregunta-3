@@ -1,0 +1,41 @@
+% neurips_compat.sty
+% Capa de compatibilidad que reproduce la geometría y la tipografía del formato NeurIPS
+% (texto de 5.5 x 9 pulgadas, Times, bloque de título entre filetes, resumen sangrado).
+% Solo se usa cuando el archivo oficial neurips_20XX.sty no está en la carpeta.
+% PARA LA ENTREGA FINAL: copiar aquí el neurips_2025.sty (o 2026) oficial; main.tex lo cargará automáticamente.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_compat}[2026/10/14 Compatibilidad con el formato NeurIPS]
+\RequirePackage[letterpaper,textwidth=5.5in,textheight=9in,top=1in,headheight=12pt,headsep=25pt,footskip=30pt,hmarginratio=1:1]{geometry}
+\RequirePackage{mathptmx}
+\RequirePackage[scaled=.92]{helvet}
+\RequirePackage{courier}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\renewcommand{\normalsize}{\fontsize{10}{11}\selectfont}
+\normalsize
+\renewcommand{\small}{\fontsize{9}{10}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{9}{10}\selectfont}
+\renewcommand{\large}{\fontsize{12}{14}\selectfont}
+\renewcommand{\Large}{\fontsize{14}{16}\selectfont}
+\renewcommand{\LARGE}{\fontsize{17}{20}\selectfont}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}{-2.0ex \@plus -0.5ex \@minus -.2ex}{1.5ex \@plus 0.3ex \@minus .2ex}{\large\bfseries\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{-1.8ex \@plus -0.5ex \@minus -.2ex}{0.8ex \@plus .2ex}{\normalsize\bfseries\raggedright}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{-1.5ex \@plus -0.5ex \@minus -.2ex}{0.5ex \@plus .2ex}{\normalsize\bfseries\raggedright}}
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}{1.5ex \@plus 0.5ex \@minus .2ex}{-1em}{\normalsize\bfseries}}
+\def\@maketitle{%
+  \vbox{\hsize\textwidth\linewidth\hsize\vskip 0.1in
+    \hrule height4pt\vskip 0.25in\vskip -\parskip
+    \centering{\LARGE\bfseries \@title\par}
+    \vskip 0.29in\vskip -\parskip\hrule height1pt\vskip 0.09in
+    {\def\And{\end{tabular}\hfil\linebreak[0]\hfil\begin{tabular}[t]{c}\bfseries\ignorespaces}%
+     \def\AND{\end{tabular}\hfil\linebreak[4]\hfil\begin{tabular}[t]{c}\bfseries\ignorespaces}%
+     \begin{tabular}[t]{c}\bfseries\ignorespaces\@author\end{tabular}%
+    }\vskip 0.3in \@minus 0.1in}}
+\renewcommand{\maketitle}{\par\begingroup\renewcommand{\thefootnote}{\fnsymbol{footnote}}\@maketitle\endgroup
+  \thispagestyle{empty}\setcounter{footnote}{0}}
+\renewenvironment{abstract}{\vskip .075in\centerline{\large\bfseries\abstractname}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
+\def\ps@neuripsplain{\def\@oddhead{}\def\@evenhead{}\def\@oddfoot{\hfil\small\thepage\hfil}\def\@evenfoot{\@oddfoot}}
+\pagestyle{neuripsplain}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+\endinput

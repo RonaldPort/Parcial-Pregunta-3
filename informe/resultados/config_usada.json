@@ -1,0 +1,31 @@
+{
+ "modelo": "yolov8s.pt",
+ "imgsz": 640,
+ "epochs": 50,
+ "patience": 15,
+ "batch": 16,
+ "workers": 2,
+ "seed": 0,
+ "frac_fondo": 0.1,
+ "modelos": [
+  "A",
+  "B"
+ ],
+ "k_vacias_ext": 3,
+ "max_demo": 6000,
+ "hilos_descarga": 32,
+ "conf_eval": 0.001,
+ "iou_nms": 0.7,
+ "max_det": 100,
+ "batch_inf": 32,
+ "chunk": 2000,
+ "cam_capas": [
+  9,
+  6
+ ],
+ "n_cam": 250,
+ "n_contrafactual": 300,
+ "n_boot": 300,
+ "usar_ena24": true,
+ "simular_caida_en_epoca": null
+}
